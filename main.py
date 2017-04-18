@@ -13,11 +13,23 @@ def session_management():
     session.permanent = True
 
 
+"""
+@Method_Name: index
+@Description: This method renders login/dashboard based on the session state
+"""
+
+
 @app.route('/')
 def index():
     if "user" in session:
         return render_template('filemanager/dashboard.html')
     return render_template('filemanager/login.html')
+
+
+"""
+@Method_Name: upload
+@Description: This methods add a file to google cloud bucket and add an entry to data store
+"""
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -42,6 +54,12 @@ def upload():
     return render_template("filemanager/upload.html")
 
 
+"""
+@Method_Name: files
+@Description: This method returns the list of files in google cloud directory
+"""
+
+
 @app.route('/files', methods=['GET'])
 def files():
     try:
@@ -50,6 +68,12 @@ def files():
         logging.exception(e)
         return render_template("filemanager/failure.html")
     return render_template("filemanager/files.html", entries=results)
+
+
+"""
+@Method_Name: login
+@Description: This method validate user credentials
+"""
 
 
 @app.route('/login', methods=['POST'])
@@ -74,10 +98,22 @@ def login():
     return render_template("filemanager/failure.html")
 
 
+"""
+@Method_Name: logout
+@Description: This method delete the session attribute
+"""
+
+
 @app.route('/logout', methods=['GET'])
 def logout():
     session.clear()
     return redirect(url_for('index'))
+
+
+"""
+@Method_Name: register
+@Description: This method allows the user to join the data store application
+"""
 
 
 @app.route('/register', methods=['GET', 'POST'])
