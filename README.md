@@ -4,7 +4,7 @@ A simple web application using the Google Application Engine
 
 ## Solution Environment
 
-Google Cloud Storage  
+Google Cloud Platform  
 Flask
 
 ## References
