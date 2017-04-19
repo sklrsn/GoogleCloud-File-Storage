@@ -2,7 +2,7 @@
 
 A simple web application using the Google Application Engine
 
-##Solution Environment
+## Solution Environment
 
 Google Cloud Storage  
 Flask
