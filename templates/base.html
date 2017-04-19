@@ -18,74 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
               crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <style>
-            .uppercase {
-                text-transform: uppercase;
-            }
-
-            body {
-                padding-top: 20px;
-                padding-bottom: 20px;
-                background-color: #eee;
-            }
-
-            .form-signin {
-                max-width: 330px;
-                padding: 15px;
-                margin: 0 auto;
-            }
-
-            .form-signin .form-signin-heading,
-            .form-signin .checkbox {
-                margin-bottom: 10px;
-            }
-
-            .form-signin .checkbox {
-                font-weight: normal;
-            }
-
-            .form-signin .form-control {
-                position: relative;
-                height: auto;
-                -webkit-box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            .form-signin .form-control:focus {
-                z-index: 2;
-            }
-
-            .form-signin input[type="email"] {
-                margin-bottom: -1px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-
-            .form-signin input[type="password"] {
-                margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-            .uppercase {
-                text-transform: uppercase;
-            }
-
-            .intro-section {
-                height: 100%;
-                padding-top: 150px;
-                text-align: center;
-            }
-
-            body {
-                background: #c1e2b3;
-                font-family: 'Bitter', sans-serif;
-            }
-        </style>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
     {% endblock %}
 </head>
 
