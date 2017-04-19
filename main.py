@@ -63,11 +63,18 @@ def upload():
 @app.route('/files', methods=['GET'])
 def files():
     try:
-        results = crud.retrieve_files()
+        uploaded_files = crud.retrieve_files()
+        text_files = []
+        audio_files = []
+        for uploaded_file in uploaded_files:
+            if ".mp3" in uploaded_file['url']:
+                audio_files.append(uploaded_file)
+            else:
+                text_files.append(uploaded_file)
     except Exception as e:
         logging.exception(e)
         return render_template("filemanager/failure.html")
-    return render_template("filemanager/files.html", entries=results)
+    return render_template("filemanager/files.html", text_files=text_files, audio_files=audio_files)
 
 
 """

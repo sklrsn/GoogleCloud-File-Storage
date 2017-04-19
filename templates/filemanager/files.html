@@ -3,6 +3,7 @@
 {% block content %}
     <div class="container">
         <div class="table-responsive">
+            <h3>Text Files</h3>
             <table class="table table-hover" border="10">
                 <thead>
                 <tr>
@@ -13,8 +14,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% if entries %}
-                    {% for entry in entries %}
+                {% if text_files %}
+                    {% for entry in text_files %}
                         <tr>
                             <td>{{ entry.title }}</td>
                             <td>{{ entry.filename }}</td>
@@ -25,6 +26,34 @@
                 {% else %}
                     <tr class="text-center">
                         <td colspan="4"> No records to display</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+
+            <h3>Audio Files</h3>
+            <table class="table table-hover" border="10">
+                <thead>
+                <tr>
+                    <th data-field="title" class="uppercase">Title</th>
+                    <th data-field="url" class="uppercase">Player</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if audio_files %}
+                    {% for entry in audio_files %}
+                        <tr>
+                            <td>{{ entry.title }}</td>
+                            <td>
+                                <audio controls>
+                                    <source src="{{ entry.url }}" type="audio/mp3">
+                                </audio>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr class="text-center">
+                        <td colspan="4"> No audio files to display</td>
                     </tr>
                 {% endif %}
                 </tbody>
